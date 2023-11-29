@@ -110,10 +110,6 @@ begin
 
   Self.ACBr.Configuracoes.WebServices.Salvar              := Self.WebServicesSalvar;
   Self.ACBr.Configuracoes.WebServices.SSLType             := TSSLType.LT_TLSv1_2;
-//  Self.ACBr.Configuracoes.WebServices.TimeOut             := Self.WebServicesTimeOut;
-//  Self.ACBr.Configuracoes.WebServices.Tentativas          := Self.WebServicesTentativas;
-//  Self.ACBr.Configuracoes.WebServices.IntervaloTentativas := Self.WebServicesIntervaloTentativas;
-//  Self.ACBr.Configuracoes.WebServices.AguardarCoNSUltaRet := Self.WebServicesAguardarCoNSUltaRet;
 
   Self.ACBr.Configuracoes.WebServices.TimeOut             := 10000;
   Self.ACBr.Configuracoes.WebServices.Tentativas          := 3;
@@ -138,7 +134,6 @@ end;
 
 procedure TManifestoConfiguracao.ConfigurarSSL;
 var
-//  IniNFe: TIniFile;
   Caminho: String;
 begin
   Self.ACBr.SSL.SSLType       := TSSLType(5);
@@ -149,7 +144,6 @@ end;
 
 function TManifestoConfiguracao.GetEmitenteCodUF: Integer;
 begin
-//  Self.EmitenteUF := FrmDados.TBEmpresaUF.Value;
   Self.EmitenteUF := Self.EmitenteUF.ToUpper();
 
   if Self.EmitenteUF = 'RO' then Result := 11 else

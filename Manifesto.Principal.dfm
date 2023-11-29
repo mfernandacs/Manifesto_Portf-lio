@@ -384,7 +384,7 @@ object FrmManifesto: TFrmManifesto
   object tmrBuscarNotas: TTimer
     Enabled = False
     Interval = 5000
-    Left = 541
-    Top = 52
+    Left = 789
+    Top = 28
   end
 end

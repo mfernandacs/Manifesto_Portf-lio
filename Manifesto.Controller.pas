@@ -6,7 +6,6 @@ uses
   Vcl.StdCtrls, Vcl.ExtCtrls, UniProvider, SQLiteUniProvider, Data.DB, DBAccess, Uni, MemDS, Vcl.Dialogs, Winapi.ActiveX,
   System.SyncObjs, System.IOUtils, Manifesto.Configuracao.Model, pcnConversao, pcnRetDistDFeInt,Manifesto.Model,
   Manifesto.Evento, Manifesto.Evento.Controller, Manifesto.DAO;
-//  Manifesto.Controller.EventoManifesto;
 
 type
   TManifesto = class(TThread)
@@ -82,7 +81,6 @@ begin
       Tipo := 'procEvento';//Evento
     end;
 
-    // se nao tiver chave, pode pular fora
     if (Self.NotaAtual.ChaveAcesso.Trim().Equals('')) OR (assigned(DmManifesto.ObterNota(Self.NotaAtual.ChaveAcesso))) then
     begin
       Exit();
@@ -90,7 +88,6 @@ begin
 
     Self.NotaAtual.NSU := ARetConsItem.NSU;
 
-    // fechar para poder manipular em baixo
     if Tipo = 'resNFe' then
     begin
       Self.NotaAtual.XML              := ARetConsItem.XML;
@@ -161,7 +158,7 @@ var
   ArquivoXML: TStringList;
 begin
   result := false;
-  path := ExtractFilePath(Application.ExeName) +'NFe\'+ AChaveAcesso +'.xml';
+  path := ExtractFilePath(Application.ExeName) +'Arquivos\'+ AChaveAcesso +'.xml';
 
   if not(FileExists(path)) then
   begin
@@ -179,7 +176,7 @@ begin
   end
   else
   begin
-      path := 'NFe\' + AChaveAcesso + '.xml';
+      path := 'Arquivos\' + AChaveAcesso + '.xml';
 
       result := true;
       exit();
